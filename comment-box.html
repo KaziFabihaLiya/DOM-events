@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Box</title>
+    <style>
+        .comment{
+            background-color: lightcyan;
+            border-radius: 10px;
+            border: 2px solid lightblue;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Awesome Comment Box. Write what in your mind!!!</h1>
+    <section>
+        <h3>All Comments here</h3>
+        <div id="comment-container">
+            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat deleniti maxime quisquam facere aspernatur facilis ullam corporis necessitatibus, neque non culpa sunt consequatur recusandae rem doloribus cupiditate obcaecati aliquam? Dolorum!</p>
+            <p class="comment">Soluta quod rerum ducimus iste voluptatibus dolore, maiores sit voluptas repudiandae cupiditate at nostrum, deserunt, aperiam veniam! Amet possimus eaque explicabo quo expedita ab reiciendis sed facere nisi velit? Pariatur!</p>
+            <p class="comment">Quisquam molestiae facere nulla modi error exercitationem ut tenetur nisi adipisci, quasi doloremque repellat velit officiis optio accusamus. Dolores quas molestiae itaque quo consequuntur explicabo velit, architecto fuga! Expedita, id.</p>
+        </div>
+        <!-- <form action=""> -->
+            <textarea name="" id="comment-text-box" cols="60" rows="5" placeholder="Write your comment here"></textarea>
+            <br>
+            <button id="btn-post-comment">Post Comment</button>
+        <!-- </form> -->
+    </section>
+    <script>
+
+        document.getElementById('btn-post-comment').addEventListener('click', function(){
+            const commentBox = document.getElementById('comment-text-box'); //textarea 
+            const commentInsideBox = commentBox.value; // textarea er bhitorer jinish; comment
+            
+
+            // get the parent node where to publish the comment
+            const commentContainer = document.getElementById('comment-container'); // Jei div er moddhe shob paragraph gula 
+
+            // console.log(commentContainer);
+
+            // display the comment; create a paragraph element and set the text
+            const commentElement = document.createElement('p'); // new paragraph element
+            commentElement.classList.add('comment'); //comment class assigned
+            commentElement.innerText = commentInsideBox;
+
+            // append the new comment to the container
+            commentContainer.appendChild(commentElement);
+
+            // clean the comment box
+            commentBox.value = '';
+
+        })
+    </script>
+</body>
+</html>
